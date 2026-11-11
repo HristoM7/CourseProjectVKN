@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1223">
+  <meta name="description" content="Морски шах с четири алгоритъма за избор на ход и експериментално сравнение.">
+  <title>Морски шах | Изследване на алгоритми</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="engine.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#game" aria-label="Морски шах – начало">
+        <span class="brand-symbol" aria-hidden="true">✕ <span>○</span></span>
+        <span>МОРСКИ <strong>ШАХ</strong></span>
+      </a>
+      <span class="top-tag">Уеб проект · Алгоритми и AI</span>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div class="eyebrow"><span class="eyebrow-line"></span> ИНТЕРАКТИВНА ИГРА И ИЗСЛЕДВАНЕ</div>
+        <h1>Една проста игра.<br><span>Четири различни стратегии.</span></h1>
+        <p>Предизвикай приятел или компютъра. Открий как различните алгоритми вземат решения, а след това ги сравни в автоматични експерименти.</p>
+      </section>
+
+      <div class="main-grid" id="game">
+        <section class="panel game-panel" aria-labelledby="game-heading">
+          <div class="section-heading">
+            <div>
+              <div class="kicker">01 / ИГРА</div>
+              <h2 id="game-heading">Игрално поле</h2>
+            </div>
+            <span class="state-indicator" id="stateIndicator"><span class="state-dot"></span> В игра</span>
+          </div>
+          <div class="turn-card" role="status" aria-live="polite">
+            <span class="turn-icon" id="turnIcon" aria-hidden="true">X</span>
+            <div><span class="muted-label">СТАТУС</span><div id="statusText">Ти си на ход (X)</div></div>
+          </div>
+          <div id="board" class="board" aria-label="Игрално поле 3 на 3"></div>
+          <div class="game-actions">
+            <button id="newGameBtn" class="btn btn-primary" type="button">↻ Нова игра</button>
+            <button id="clearScoresBtn" class="btn btn-ghost" type="button">Изчисти статистиката</button>
+          </div>
+          <div class="game-footnote" id="lastDecision">Избери свободно поле, за да направиш ход.</div>
+        </section>
+
+        <aside class="side-column" aria-label="Настройки и статистика">
+          <section class="panel settings-panel" aria-labelledby="settings-heading">
+            <div class="section-heading">
+              <div><div class="kicker">02 / НАСТРОЙКИ</div><h2 id="settings-heading">Нова игра</h2></div>
+            </div>
+            <label for="modeSelect">Режим</label>
+            <select id="modeSelect"><option value="ai">Играч срещу компютър</option><option value="pvp">Играч срещу играч</option></select>
+            <div class="settings-row">
+              <div><label for="symbolSelect">Твоят символ</label><select id="symbolSelect"><option value="X">X – започвам пръв</option><option value="O">O – компютърът започва</option></select></div>
+              <div><label for="levelSelect">Трудност</label><select id="levelSelect"><option value="random">Лесна</option><option value="heuristic">Средна</option><option value="minimax" selected>Трудна</option><option value="alphabeta">Оптимизирана</option></select></div>
+            </div>
+            <div id="levelInfo" class="algorithm-note">Minimax разглежда възможните продължения и избира оптимален ход.</div>
+            <button id="applySettingsBtn" class="btn btn-outline" type="button">Приложи и започни нова игра</button>
+          </section>
+
+          <section class="panel stats-panel" aria-labelledby="stats-heading">
+            <div class="section-heading"><div><div class="kicker">03 / РЕЗУЛТАТИ</div><h2 id="stats-heading">Твоята статистика</h2></div></div>
+            <div class="stats-grid">
+              <div class="stat-block"><span id="statWins" class="stat-number">0</span><span id="statWinsLabel">Победи</span></div>
+              <div class="stat-block"><span id="statLosses" class="stat-number">0</span><span id="statLossesLabel">Загуби</span></div>
+              <div class="stat-block"><span id="statDraws" class="stat-number">0</span><span>Равенства</span></div>
+            </div>
+            <p class="small-note">Статистиката за двата режима се пази локално в браузъра.</p>
+          </section>
+        </aside>
+      </div>
+
+      <section class="panel experiment-panel" id="research" aria-labelledby="experiment-heading">
+        <div class="section-heading">
+          <div><div class="kicker">04 / ЕКСПЕРИМЕНТ</div><h2 id="experiment-heading">Лаборатория за алгоритми</h2></div>
+          <span class="lab-tag">AI ↔ AI</span>
+        </div>
+        <p class="experiment-description">Избери два алгоритъма и брой партии. Програмата ще симулира игрите, ще отчете победите, равенствата, броя посетени възли и времето за вземане на решения. Резултатите могат да се използват в курсовата работа.</p>
+        <div class="experiment-controls">
+          <div><label for="algoX">Алгоритъм X (първи)</label><select id="algoX"><option value="random">Random</option><option value="heuristic">Heuristic</option><option value="minimax">Minimax</option><option value="alphabeta">Alpha-Beta</option></select></div>
+          <div><label for="algoO">Алгоритъм O (втори)</label><select id="algoO"><option value="random">Random</option><option value="heuristic">Heuristic</option><option value="minimax" selected>Minimax</option><option value="alphabeta">Alpha-Beta</option></select></div>
+          <div><label for="gamesCount">Брой партии</label><select id="gamesCount"><option value="100">100</option><option value="500">500</option><option value="1000">1000</option></select></div>
+          <button id="runExperimentBtn" class="btn btn-primary" type="button">▶ Стартирай</button>
+          <button id="stopExperimentBtn" class="btn btn-ghost" type="button" disabled>Спри</button>
+        </div>
+        <div id="experimentProgressWrap" class="progress-wrap" hidden>
+          <div class="progress-caption"><span id="progressLabel" role="status" aria-live="polite">Подготовка…</span><span id="progressPct">0%</span></div>
+          <progress id="experimentProgress" max="100" value="0"></progress>
+        </div>
+        <div id="experimentResults" class="results-placeholder" aria-live="polite">Резултатите от симулацията ще се покажат тук.</div>
+        <button id="downloadCsvBtn" class="btn btn-outline export-btn" type="button" hidden>↓ Изтегли резултатите (CSV)</button>
+      </section>
+    </main>
+    <footer>Учебен проект · HTML, CSS, JavaScript · Random, Heuristic, Minimax, Alpha-Beta</footer>
+  </div>
+</body>
+</html>

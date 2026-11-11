@@ -1,0 +1,5 @@
+algorithmA,algorithmB,games,winsA,winsB,draws,pctWinsA,pctWinsB,pctDraws,averageMoves
+"Random","Heuristic",2000,7,1804,189,0.35,90.2,9.45,6.158
+"Random","Minimax",2000,0,1824,176,0,91.2,8.8,6.176
+"Heuristic","Minimax",2000,0,0,2000,0,0,100,9
+"Minimax","Alpha-Beta",2000,0,0,2000,0,0,100,9

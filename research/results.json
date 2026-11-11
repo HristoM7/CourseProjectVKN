@@ -1,0 +1,298 @@
+{
+  "meta": {
+    "generatedAt": "2026-11-11",
+    "nodeVersion": "v22.16.0",
+    "platform": "linux/x64",
+    "gamesPerOrientation": 1000,
+    "seedBase": 20261111,
+    "methodology": "2 orientations per pair; fixed xorshift32 seed; caches cleared before each series and retained across games. Cold-cache benchmark on identical legal nonterminal states with caches cleared per state+algorithm.",
+    "caution": "Node.js elapsed times are environment-dependent; nodes are more robust; caching makes pruning comparison nontrivial."
+  },
+  "matches": [
+    {
+      "x": "random",
+      "o": "heuristic",
+      "seed": 20261111,
+      "n": 1000,
+      "winsX": 7,
+      "winsO": 836,
+      "draws": 157,
+      "sumMoves": 6702,
+      "stats": {
+        "X": {
+          "moves": 3433,
+          "nodes": 3433,
+          "hits": 0,
+          "ms": 1.266295999999933
+        },
+        "O": {
+          "moves": 3269,
+          "nodes": 18538,
+          "hits": 0,
+          "ms": 20.043146000000057
+        }
+      }
+    },
+    {
+      "x": "heuristic",
+      "o": "random",
+      "seed": 20261111,
+      "n": 1000,
+      "winsX": 968,
+      "winsO": 0,
+      "draws": 32,
+      "sumMoves": 5614,
+      "stats": {
+        "X": {
+          "moves": 3307,
+          "nodes": 21857,
+          "hits": 0,
+          "ms": 18.82610099999998
+        },
+        "O": {
+          "moves": 2307,
+          "nodes": 2307,
+          "hits": 0,
+          "ms": 0.7319409999999493
+        }
+      }
+    },
+    {
+      "x": "random",
+      "o": "minimax",
+      "seed": 20261211,
+      "n": 1000,
+      "winsX": 0,
+      "winsO": 850,
+      "draws": 150,
+      "sumMoves": 6752,
+      "stats": {
+        "X": {
+          "moves": 3451,
+          "nodes": 3451,
+          "hits": 0,
+          "ms": 1.0862829999989856
+        },
+        "O": {
+          "moves": 3301,
+          "nodes": 34688,
+          "hits": 26452,
+          "ms": 51.81136400000041
+        }
+      }
+    },
+    {
+      "x": "minimax",
+      "o": "random",
+      "seed": 20261211,
+      "n": 1000,
+      "winsX": 974,
+      "winsO": 0,
+      "draws": 26,
+      "sumMoves": 5600,
+      "stats": {
+        "X": {
+          "moves": 3300,
+          "nodes": 38006,
+          "hits": 29548,
+          "ms": 28.64920800000064
+        },
+        "O": {
+          "moves": 2300,
+          "nodes": 2300,
+          "hits": 0,
+          "ms": 0.2145470000002092
+        }
+      }
+    },
+    {
+      "x": "heuristic",
+      "o": "minimax",
+      "seed": 20261311,
+      "n": 1000,
+      "winsX": 0,
+      "winsO": 0,
+      "draws": 1000,
+      "sumMoves": 9000,
+      "stats": {
+        "X": {
+          "moves": 5000,
+          "nodes": 25000,
+          "hits": 0,
+          "ms": 16.001056000000347
+        },
+        "O": {
+          "moves": 4000,
+          "nodes": 24608,
+          "hits": 22196,
+          "ms": 18.189446000000657
+        }
+      }
+    },
+    {
+      "x": "minimax",
+      "o": "heuristic",
+      "seed": 20261311,
+      "n": 1000,
+      "winsX": 0,
+      "winsO": 0,
+      "draws": 1000,
+      "sumMoves": 9000,
+      "stats": {
+        "X": {
+          "moves": 5000,
+          "nodes": 41158,
+          "hits": 32777,
+          "ms": 34.007518999998894
+        },
+        "O": {
+          "moves": 4000,
+          "nodes": 20000,
+          "hits": 0,
+          "ms": 11.39005400000326
+        }
+      }
+    },
+    {
+      "x": "minimax",
+      "o": "alphabeta",
+      "seed": 20261411,
+      "n": 1000,
+      "winsX": 0,
+      "winsO": 0,
+      "draws": 1000,
+      "sumMoves": 9000,
+      "stats": {
+        "X": {
+          "moves": 5000,
+          "nodes": 41158,
+          "hits": 32777,
+          "ms": 35.10007400000194
+        },
+        "O": {
+          "moves": 4000,
+          "nodes": 20959,
+          "hits": 20257,
+          "ms": 17.78458299999977
+        }
+      }
+    },
+    {
+      "x": "alphabeta",
+      "o": "minimax",
+      "seed": 20261411,
+      "n": 1000,
+      "winsX": 0,
+      "winsO": 0,
+      "draws": 1000,
+      "sumMoves": 9000,
+      "stats": {
+        "X": {
+          "moves": 5000,
+          "nodes": 27149,
+          "hits": 24676,
+          "ms": 19.847669000002327
+        },
+        "O": {
+          "moves": 4000,
+          "nodes": 24608,
+          "hits": 22196,
+          "ms": 17.883950999999456
+        }
+      }
+    }
+  ],
+  "pairSummaries": [
+    {
+      "a": "random",
+      "b": "heuristic",
+      "games": 2000,
+      "aWins": 7,
+      "bWins": 1804,
+      "draws": 189,
+      "avgMoves": 6.158
+    },
+    {
+      "a": "random",
+      "b": "minimax",
+      "games": 2000,
+      "aWins": 0,
+      "bWins": 1824,
+      "draws": 176,
+      "avgMoves": 6.176
+    },
+    {
+      "a": "heuristic",
+      "b": "minimax",
+      "games": 2000,
+      "aWins": 0,
+      "bWins": 0,
+      "draws": 2000,
+      "avgMoves": 9
+    },
+    {
+      "a": "minimax",
+      "b": "alphabeta",
+      "games": 2000,
+      "aWins": 0,
+      "bWins": 0,
+      "draws": 2000,
+      "avgMoves": 9
+    }
+  ],
+  "benchmarkSummary": {
+    "positions": 94,
+    "minimaxNodes": 84135,
+    "alphabetaNodes": 17306,
+    "minimaxMs": 84.1909569999998,
+    "alphabetaMs": 21.512374999999622,
+    "byPly": [
+      {
+        "ply": 0,
+        "positions": 1,
+        "sampled": 1
+      },
+      {
+        "ply": 1,
+        "positions": 9,
+        "sampled": 9
+      },
+      {
+        "ply": 2,
+        "positions": 72,
+        "sampled": 12
+      },
+      {
+        "ply": 3,
+        "positions": 252,
+        "sampled": 12
+      },
+      {
+        "ply": 4,
+        "positions": 756,
+        "sampled": 12
+      },
+      {
+        "ply": 5,
+        "positions": 1140,
+        "sampled": 12
+      },
+      {
+        "ply": 6,
+        "positions": 1372,
+        "sampled": 12
+      },
+      {
+        "ply": 7,
+        "positions": 696,
+        "sampled": 12
+      },
+      {
+        "ply": 8,
+        "positions": 222,
+        "sampled": 12
+      }
+    ],
+    "nodeReductionPct": 79.43067688833423
+  }
+}
